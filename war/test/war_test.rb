@@ -32,7 +32,7 @@ class WarTest < MiniTest::Test
     count1 = game.player1.count
     count2 = game.player2.count
 
-    game.play_round
+    game.battle
 
     assert_equal count1 + 1, game.player1.count
     assert_equal count2 - 1, game.player2.count
