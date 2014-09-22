@@ -5,6 +5,16 @@ class Card
     @rank = rank
     @suit = suit
   end
+
+  def value
+    if ["J", "Q", "K"].include?(@rank)
+      10
+    elsif @rank == "A"
+      1
+    else
+      @rank.to_i
+    end
+  end
 end
 
 class Deck
