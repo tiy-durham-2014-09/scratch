@@ -32,16 +32,8 @@ class War
 
     pool = [card1, card2].shuffle
 
-    if card1.value > card2.value
-      player1.unshift(*pool)
-      say "Player 1 wins with a #{card1.rank} vs a #{card2.rank}."
-    elsif card2.value > card1.value
-      player2.unshift(*pool)
-      say "Player 2 wins with a #{card2.rank} vs a #{card1.rank}."
-    else
-      say "WORLD WAR!!! with a #{card1.rank}"
-      world_war(card1, card2, pool)
-    end
+    find_winner(card1, card2, pool)
+
     say "#{player1.count} / #{player2.count}"
   end
 
@@ -57,14 +49,18 @@ class War
 
     pool.shuffle!
 
-    if card2.nil? || card1.value > card2.value
+    find_winner(card1, card2, pool)
+  end
+
+  def find_winner(card1, card2, pool)
+    if card1.value > card2.value
       player1.unshift(*pool)
-      say "Player 1 wins the WORLD WAR with a #{card1.rank}!"
-    elsif card1.nil? || card2.value > card1.value
+      say "Player 1 wins with a #{card1.rank}!"
+    elsif card2.value > card1.value
       player2.unshift(*pool)
-      say "Player 2 wins the WORLD WAR with a #{card2.rank}!"
+      say "Player 2 wins with a #{card2.rank}!"
     else
-      say "MORE WORLD WAR!!! with a #{card1.rank}"
+      say "WORLD WAR!!! with a #{card1.rank}"
       world_war(card1, card2, pool)
     end
   end
