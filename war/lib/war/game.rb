@@ -57,12 +57,12 @@ module War
     def find_winner(card1, card2, pool)
       if card1 > card2
         player1.unshift(*pool)
-        say "Player 1 wins with a #{card1.rank}!"
+        say "Player 1 wins with a \n#{card1}!"
       elsif card2 > card1
         player2.unshift(*pool)
-        say "Player 2 wins with a #{card2.rank}!"
+        say "Player 2 wins with a \n#{card2}!"
       else
-        say "WORLD WAR!!! with a #{card1.rank}"
+        say "WORLD WAR!!! with a \n#{card1}"
         world_war(card1, card2, pool)
       end
     end
