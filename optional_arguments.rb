@@ -29,9 +29,7 @@ class LazyPolygon
   attr_reader :points
 
   def initialize(*points)
-    if points.size < 3
-      raise ArgumentError.new("Polygons require at least 3 points.")
-    end
+    raise ArgumentError.new("Polygons require at least 3 points.") if points.size < 3
     @points = points
   end
 end
